@@ -8,7 +8,7 @@ describe('Copy file', () => {
     const folderCopeName = `${folderName}_copy`;
     const testFolderPath = 'src/fs/';
     const testSrcDir = `${testFolderPath}${folderName}`;
-    const testDestDir = `${testFolderPath}${folderCopeName}`
+    const testdistDir = `${testFolderPath}${folderCopeName}`
 
     beforeEach(async () => {
         // create test folder
@@ -16,7 +16,7 @@ describe('Copy file', () => {
         await fs.writeFile(path.join(testSrcDir, 'test.txt'), C.TEST);
 
         try {
-            await fs.rm(testDestDir, { recursive: true, force: true });
+            await fs.rm(testdistDir, { recursive: true, force: true });
         } catch { }
     });
 
@@ -24,18 +24,18 @@ describe('Copy file', () => {
         // remove test folders
         try {
             await fs.rm(testSrcDir, { recursive: true, force: true });
-            await fs.rm(testDestDir, { recursive: true, force: true });
+            await fs.rm(testdistDir, { recursive: true, force: true });
         } catch { }
     });
 
     test('Copy folder test in test_copy', async () => {
-        await copy(testSrcDir, testDestDir);
-        const copied = await fs.readFile(path.join(testDestDir, 'test.txt'), 'utf-8');
+        await copy(testSrcDir, testdistDir);
+        const copied = await fs.readFile(path.join(testdistDir, 'test.txt'), 'utf-8');
         expect(copied).toBe(C.TEST);
     });
 
-    test('Throw error if destDir exist', async () => {
-        await fs.mkdir(testDestDir);
-        await expect(copy(testSrcDir, testDestDir)).rejects.toThrow(C.ERROR_MESSAGE_FS);
+    test('Throw error if distDir exist', async () => {
+        await fs.mkdir(testdistDir);
+        await expect(copy(testSrcDir, testdistDir)).rejects.toThrow(C.ERROR_MESSAGE_FS);
     });
 });
