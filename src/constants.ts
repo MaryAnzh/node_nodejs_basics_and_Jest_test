@@ -6,6 +6,8 @@ export const {
     ERROR_MESSAGE,
     TEST_FOULED,
     TEST,
+    TEST_CONTENT,
+    FOLDER_NAME,
 } = {
     FRESH_TXT: 'fresh.txt',
     CREATE_TEXT: 'I am fresh and young',
@@ -13,5 +15,7 @@ export const {
     SUCCESS: 'success',
     ERROR_MESSAGE: 'Ops.. error',
     TEST_FOULED: 'test fouled',
-    TEST: 'test'
+    TEST: 'test',
+    TEST_CONTENT: 'test content',
+    FOLDER_NAME: 'test_folder',
 } as const;
