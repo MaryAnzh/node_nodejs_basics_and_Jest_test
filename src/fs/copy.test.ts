@@ -4,7 +4,7 @@ import { copy } from './copy';
 import * as C from '../constants';
 
 describe('Copy file', () => {
-    const folderName = C.TEST;
+    const folderName = `${C.TEST_FOLDER_NAME}_copy`;
     const folderCopeName = `${folderName}_copy`;
     const testFolderPath = 'src/fs/';
     const testSrcDir = `${testFolderPath}${folderName}`;

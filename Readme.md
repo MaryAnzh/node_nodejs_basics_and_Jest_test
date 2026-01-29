@@ -8,3 +8,4 @@
 - copy.ts + copy.test.ts
 - rename.ts + rename.test.ts
 - delete.ts + detete.test.ts
+- list.ts + list.test.ts

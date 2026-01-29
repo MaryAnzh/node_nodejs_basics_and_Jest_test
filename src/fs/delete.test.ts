@@ -4,7 +4,8 @@ import { remove } from './delete';
 import * as C from '../constants';
 
 describe('delete file', () => {
-    const folder = path.resolve(C.TEST_FOLDER_NAME);
+    const folderName = `${C.TEST_FOLDER_NAME}_delete`;
+    const folder = path.resolve(folderName);
     const fileName = 'wrongFilename.txt';
     const filePath = path.resolve(folder, fileName);
 
@@ -22,7 +23,7 @@ describe('delete file', () => {
 
     test('successfully removes existing file', async () => {
         await fs.writeFile(filePath, C.TEST_CONTENT);
-        await remove(fileName, C.TEST_FOLDER_NAME);
+        await remove(fileName, folderName);
         await expect(fs.access(filePath)).rejects.toThrow();
     });
 
