@@ -29,3 +29,7 @@ export const {
     NOT_FOUND: 'not found',
     FOLDER_EXIST: 'folder exist',
 } as const;
+
+export const WEB_P_FORMATS = [
+    'jpg', 'jpeg', 'png', 'tif', 'tiff', 'avif', 'svg', 'raw'
+];
